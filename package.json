@@ -1,0 +1,22 @@
+{
+  "name": "upsert-env",
+  "version": "2.0.0",
+  "description": "A little tool to dynamically update .env files.",
+  "main": "upsert.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmiddlesworth/upsert-env.git"
+  },
+  "keywords": [
+    "env"
+  ],
+  "author": "Kevin Middlesworth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmiddlesworth/upsert-env/issues"
+  },
+  "homepage": "https://github.com/kmiddlesworth/upsert-env#readme"
+}
