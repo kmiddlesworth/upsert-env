@@ -44,17 +44,12 @@ module.exports = {
 	        }
 
 	        // add new items that are not already in the .env configuration file
-	        // note: anything already included was deleted from the object above
-	        for (var i = 0, len = configArr.length; i < len; i++) {
-	        	
-	        	// ensure the current line has a variable declaration and is not a comment 
-	        	if (configArr[i].indexOf('=') != -1 && configArr[i][0] != '#') {
+	        // note: anything already included (updated) was deleted from the object above
+	        for (var key in object) {
 
-	        		var envItem = configArr[i].split('=');
-	        		returnObj[envItem[0]] = envItem[1]
+	        	configArr.push(key + '=' + object[key]);
 
-	        	}
-	        } 
+	        }
 	         
 	        // write the new file, with the joined array
 	        fs.writeFile (path, configArr.join('\n'), function(err) {
