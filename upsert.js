@@ -12,6 +12,7 @@ module.exports = {
 
 		var path = (path) ? path : './.env';
 		var returnObj = {};
+		var usedObjArr = [];
 
 		fs.readFile(path, 'utf8', function (err, data) {
 		
@@ -37,7 +38,7 @@ module.exports = {
 
 	        			if (envKey == key) {
 	        				configArr[i] = key + '=' + object[key];
-	        				delete object[key];
+	        				usedObjArr.push(key);
 	        			}
 	        		}
 	        	}
@@ -47,7 +48,7 @@ module.exports = {
 	        // note: anything already included (updated) was deleted from the object above
 	        for (var key in object) {
 
-	        	configArr.push(key + '=' + object[key]);
+	        	if (usedObjArr.indexOf(key) == -1) configArr.push(key + '=' + object[key]);
 
 	        }
 	         
